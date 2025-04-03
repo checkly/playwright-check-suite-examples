@@ -1,0 +1,18 @@
+{
+  "name": "project-setup-and-storage-state",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.51",
+    "@types/node": "^22.1.0",
+    "checkly": "^0.0.0-pr.1042.6961f2b"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
