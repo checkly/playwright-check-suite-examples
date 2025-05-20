@@ -13,17 +13,17 @@ export default defineConfig({
 	    //Run the essential project with checkly configuration
 	    name: 'Essential',
 	    pwProjects: 'essential', // Reference the project in playwright.config.ts
-	    frequency: Frequency.EVERY_24H,
+	    frequency: Frequency.EVERY_10M,
       },
 	  {
 	    name: 'Critical-tagged',
 	    pwTags: 'critical',  // Reference a tag in the tests
-	    frequency:  60,
+	    frequency:  5,
 	  },
 	  {
 	    name: 'Fast-tagged',
 	    pwTags: 'fast',  // Reference a tag in the tests
-	    frequency:  Frequency.EVERY_24H,
+	    frequency:  Frequency.EVERY_2M,
 	  },
 	 ],
  },

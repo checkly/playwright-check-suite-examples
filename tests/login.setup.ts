@@ -11,6 +11,6 @@ setup("Log into Checkly", async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.PW as string);
   await page.getByRole('button', { name: 'Continue' }).click();
-  await expect(page.getByLabel("Home")).toBeVisible();
+  await expect(page.getByRole('button', { name: /switch accounts/i })).toBeVisible()
   await page.context().storageState({ path: AUTH_FILE })
 });
