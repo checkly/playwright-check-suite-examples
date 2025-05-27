@@ -10,9 +10,12 @@
   "devDependencies": {
     "@playwright/test": "^1.51",
     "@types/node": "^22.1.0",
-    "checkly": "^0.0.0-pr.1042.6961f2b"
+    "checkly": "^0.0.0-pr.1077.3c8e1f4",
+    "@amalulla/my-utils": "^1.0.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "jiti": "^2.4.2",
+    "typescript": "^5.8.3"
   }
 }

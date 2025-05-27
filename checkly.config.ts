@@ -8,21 +8,28 @@ export default defineConfig({
  repoUrl: 'https://github.com/MariadeAnton/playwright-examples',
  checks: {
  playwrightConfigPath: './playwright.config.ts',
+ include: ['.npmrc'],
  playwrightChecks: [
 	  {
-	    //Run the essential project with checkly configuration
-	    name: 'Essential',
-	    pwProjects: 'essential', // Reference the project in playwright.config.ts
+	    //Run the Chromium project with checkly configuration
+	    name: 'Chromium Suite',
+		logicalId: 'chromium-e2e-suite',
+	    pwProjects: 'chromium', // Reference a project in your playwright.config.ts
 	    frequency: Frequency.EVERY_10M,
+		locations:['us-west-1','eu-west-2','ap-northeast-1'],
       },
 	  {
-	    name: 'Critical-tagged',
-	    pwTags: 'critical',  // Reference a tag in the tests
+	    name: 'Critical suite in all device projects',
+		logicalId:'critical-suite',
+	    pwTags: 'critical',  // Reference a tag in your tests
 	    frequency:  5,
+		locations:['us-west-1','eu-west-2','ap-northeast-1'],
 	  },
 	  {
-	    name: 'Fast-tagged',
-	    pwTags: 'fast',  // Reference a tag in the tests
+	    name: 'Sanity suite in Chromium',
+		logicalId:'sanity-suite',
+		pwProjects: 'chromium', // Reference a project in your playwright.config.ts
+	    pwTags: 'sanity',  // Reference a tag in your tests
 	    frequency:  Frequency.EVERY_2M,
 	  },
 	 ],

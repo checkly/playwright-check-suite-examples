@@ -53,9 +53,17 @@ export default defineConfig({
       testMatch: '**/*.cleanup.ts',
     },
     {
-      name: 'essential',
+      name: 'chromium',
       use: {
         ...devices["Desktop Chrome"],
+        storageState: ".auth/user.json",
+      },
+      dependencies: ["setup"],
+    },
+     {
+      name: 'firefox',
+      use: {
+        ...devices["Desktop Firefox"],
         storageState: ".auth/user.json",
       },
       dependencies: ["setup"],

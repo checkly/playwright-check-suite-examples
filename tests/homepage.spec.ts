@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('Visit Checkly home page @fast', async ({ page }) => {
+test('Visit Checkly home page @sanity', async ({ page }) => {
     const response = await page.goto('https://checklyhq.com');
 
     expect(response).not.toBeNull();
