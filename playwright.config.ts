@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test"
+const iphone13 = devices['iPhone 13'];
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -64,6 +66,14 @@ export default defineConfig({
       name: 'firefox',
       use: {
         ...devices["Desktop Firefox"],
+        storageState: ".auth/user.json",
+      },
+      dependencies: ["setup"],
+    },
+      {
+      name: 'iphone-14',
+      use: {
+        ...devices["iPhone 14"],
         storageState: ".auth/user.json",
       },
       dependencies: ["setup"],

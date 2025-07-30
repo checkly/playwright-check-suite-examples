@@ -3,34 +3,34 @@ import { defineConfig } from 'checkly'
 import { Frequency } from 'checkly/constructs'
 
 export default defineConfig({
- projectName: 'pwExamples-maria',
- logicalId: 'pwExamples-Maria',
- repoUrl: 'https://github.com/MariadeAnton/playwright-examples',
+ projectName: 'Demo Playwright Check Suites',
+ logicalId: 'demo-pwCheckSuites',
+ repoUrl: 'https://github.com/checkly/playwright-check-suite-examples',
  checks: {
      playwrightConfigPath: './playwright.config.ts',
-     include: ['.npmrc'],
+	 locations:['us-west-1','eu-west-2','ap-northeast-1'],
+
      playwrightChecks: [
      {
 	    //Run the Chromium project with checkly configuration
 	    name: 'Chromium Suite',
 	    logicalId: 'chromium-e2e-suite',
-	    pwProjects: 'chromium', // Reference a project in your playwright.config.ts
-	    frequency: Frequency.EVERY_10M,
-	    locations:['us-west-1','eu-west-2','ap-northeast-1'],
-      },
+	    pwProjects: 'chromium', // get complete set of tests run in chromium
+	    frequency: Frequency.EVERY_10M,      },
 	  {
-	    name: 'Critical suite in all device projects',
+	    name: 'Critical tagged tests in all devices',
 	    logicalId:'critical-suite',
-	    pwTags: 'critical',  // Reference a tag in your tests
+	    pwTags: 'critical',  // get all tests tagged critical
 	    frequency:  5,
-	    locations:['us-west-1','eu-west-2','ap-northeast-1'],
 	  },
 	  {
-	    name: 'Sanity suite in Chromium',
+	    name: 'Sanity tagged tests in Chromium, only in Ireland',
 	    logicalId:'sanity-suite',
-	    pwProjects: 'chromium', // Reference a project in your playwright.config.ts
-	    pwTags: 'sanity',  // Reference a tag in your tests
+	    pwProjects: 'chromium', // use chromium
+	    pwTags: 'sanity',  // get all tests tagged sanity
 	    frequency:  Frequency.EVERY_2M,
+		locations:['eu-west-1'],
+
 	  },
      ],
  },

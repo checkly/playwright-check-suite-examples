@@ -1,5 +1,5 @@
 {
-  "name": "project-setup-and-storage-state",
+  "name": "playwright-check-suites",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {},
@@ -8,10 +8,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.51",
+    "@playwright/test": "^1.54",
     "@types/node": "^22.1.0",
-    "checkly": "^0.0.0-pr.1077.3c8e1f4",
-    "@amalulla/my-utils": "^1.0.0"
+    "checkly": "^6.2.0"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
