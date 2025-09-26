@@ -1,6 +1,6 @@
 # Checkly Playwright Check Suites examples
 
-![Use your Playwright end-to-end tests forsynthetic monitoring with Playwright Check Suites.](/assets/header.jpg)
+![Use your Playwright end-to-end tests for synthetic monitoring with Playwright Check Suites.](/assets/header.jpg)
 
 > Take your existing Playwright Test Suite and reuse it for synthetic monitoring.
 
