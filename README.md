@@ -105,13 +105,13 @@ npx checkly pw-test --location="eu-central-1"
 Run specific project:
 
 ```bash
-npx pw-test -- --project="chromium"
+npx checkly pw-test -- --project="chromium"
 ```
 
 Run tests with a specific tag:
 
 ```bash
-npx pw-test -- --grep @sanity
+npx checkly pw-test -- --grep @sanity
 ```
 
 ### Test and run your Playwright Check Suite configuration
@@ -365,7 +365,7 @@ setup("Log into Checkly", async ({ page }) => {
 })
 ```
 
-Configure two new Playwright projects to perform the login actions and persist the browser state and a project that imports the browser state to avoid the login steps.
+Configure two new Playwright projects. The first one performs the login actions to persist the browser state, while the other one imports the browser state to avoid the login steps.
 
 ```typescript
 // playwright.config.ts
