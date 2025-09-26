@@ -182,7 +182,7 @@ export default defineConfig({
     playwrightChecks: [
       {
         name: "Multiple Browser Suite",
-        logicalId: "browser-compate-e2e-suite",
+        logicalId: "browser-compat-e2e-suite",
         // Specify which projects should be
         // included in the Playwright Check Suite
         pwProjects: ["chromium", "firefox"],
