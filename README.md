@@ -99,7 +99,7 @@ npx checkly pw-test
 Run tests from a specific location:
 
 ```bash
-npx pw-test --location="eu-central-1"
+npx checkly pw-test --location="eu-central-1"
 ```
 
 Run specific project:
