@@ -55,7 +55,7 @@ export default defineConfig({
       },
 
       /**
-       * Example3: Monitor different application areas using Playwright tags
+       * Example 3: Monitor different application areas using Playwright tags
        */
 
       /**
