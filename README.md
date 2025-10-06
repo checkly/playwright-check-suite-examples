@@ -37,9 +37,9 @@ npm install
 ```
 playwright-check-suite-examples/
 ├── tests/                      # Playwright Test files
-│   ├── example-1/              # Example 1 spec files
-│   ├── example-2/              # Example 2 spec files
-│   ├── ...
+│   ├── multiple-browsers/      # Example spec files
+│   ├── different-environments/ # Example spec files
+│   └── ...
 ├── checkly.config.ts           # Checkly configuration
 ├── playwright.config.ts        # Playwright configuration
 └── package.json                # Project dependencies
@@ -47,7 +47,7 @@ playwright-check-suite-examples/
 
 ## Basic Configuration
 
-This repository includes an initialized Playwright and [Checkly CLI project](#todo) to show how to use Playwright Check Suites.
+This repository includes an initialized Playwright and [Checkly CLI project](https://www.checklyhq.com/docs/cli/overview/) to show how to use Playwright Check Suites.
 
 Checkly Playwright Check Suites enable you to reuse and bundle your existing Playwright end-to-end test suite for end-to-end testing and synthetic monitoring runing in the global Checkly infrastructure.
 
@@ -76,7 +76,7 @@ Specify the following properties to control your Playwright setup for synthetic 
 - **Check Suite Definitions**: subsets of your Playwright test suite used as Playwright Check Suites (`checks.playwrightChecks`)
 
 > [!TIP]
-> Learn more about all the Checkly monitoring options in [the official Checkly documentation](#todo).
+> Learn more about all the Checkly monitoring options in [the official Checkly documentation](https://www.checklyhq.com/docs/constructs/project/).
 
 ## Running Tests
 
@@ -84,7 +84,7 @@ Playwright tests usually run on your local machine or in your CI/CD pipeline whe
 
 ### Run your Playwright tests in the Checkly infrastructure
 
-Use [the `pw-test` command](#todo) to run your Playwright tests in the Checkly infrastructure before deploying them as synthetic monitors. The command accepts Checkly and Playwright CLI options.
+Use [the `pw-test` command](https://www.checklyhq.com/docs/cli/checkly-pw-test/) to run your Playwright tests in the Checkly infrastructure before deploying them as synthetic monitors. The command accepts Checkly and Playwright CLI options.
 
 ```bash
 npx checkly pw-test [checkly options] -- [playwright options]
@@ -116,7 +116,7 @@ npx checkly pw-test -- --grep @sanity
 
 ### Test and run your Playwright Check Suite configuration
 
-Once you have configured your Playwright Check Suites use [the `npx checkly test` command](#todo) to run and test your combined Playwright and Checkly configuration.
+Once you have configured your Playwright Check Suites use [the `npx checkly test` command](https://www.checklyhq.com/docs/cli/checkly-test/) to run and test your combined Playwright and Checkly configuration.
 
 Run a specific Playwright Check Suite:
 
@@ -143,7 +143,7 @@ npx checkly deploy
 These following examples highlight configurations to reuse, select and configure your Playwright end-to-end tests for Checkly synthetic monitoring.
 
 > [!TIP]
-> Learn more about Playwright Check Suites, best practices and how to structure your tests in [the organizing Playwright Check Suites documentation](#todo).
+> Learn more about Playwright Check Suites, best practices and how to structure your tests in [the organizing Playwright Check Suites documentation](https:/www.checklyhq.com/docs/detect/synthetic-monitoring/playwright-checks/test-organization).
 
 ### 1. Run Playwright tests with multiple browsers
 
@@ -156,14 +156,14 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      testMatch: /.*\/example-1\/.*\.spec\.ts/,
+      testMatch: /.*\/multiple-browsers\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
       },
     },
     {
       name: "firefox",
-      testMatch: /.*\/example-1\/.*\.spec\.ts/,
+      testMatch: /.*\/multiple-browsers\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Firefox"],
       },
@@ -210,12 +210,12 @@ export default defineConfig({
   projects: [
     {
       name: "environment-marketing",
-      testMatch: /.*\/example-2\/.*\.spec\.ts/,
+      testMatch: /.*\/different-environments\/.*\.spec\.ts/,
       use: { ...devices["Desktop Chrome"], baseURL: "https://checklyhq.com" },
     },
     {
       name: "environment-docs",
-      testMatch: /.*\/example-2\/.*\.spec\.ts/,
+      testMatch: /.*\/different-environments\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
         // Change the base URL for this environment
@@ -375,7 +375,7 @@ export default defineConfig({
     {
       name: "login-setup",
       use: { ...devices["Desktop Chrome"], baseURL: "https://checklyhq.com" },
-      testMatch: /.*\/example-4\/.*\.setup\.ts/,
+      testMatch: /.*\/storage-state-and-dependencies\/.*\.setup\.ts/,
     },
     {
       name: "logged-in-tests",
@@ -385,7 +385,7 @@ export default defineConfig({
         // 2. Reuse the written browser state to avoid login steps
         storageState: path.resolve(__dirname, AUTH_FILE),
       },
-      testMatch: /.*\/example-4\/.*\.spec\.ts/,
+      testMatch: /.*\/storage-state-and-dependencies\/.*\.spec\.ts/,
       // 1. Set the project doing the login as a dependency
       dependencies: ["login-setup"],
     },
@@ -424,8 +424,8 @@ Project dependencies and storage state work the same way as your standard Playwr
 ## Resources
 
 - [Playwright Documentation](https://playwright.dev)
-- [Checkly Documentation](#TODO)
-- [Checkly Playwright Check Suites](#TODO)
+- [Checkly Documentation](https://www.checklyhq.com/docs/)
+- [Checkly Playwright Check Suites](https://www.checklyhq.com/docs/detect/synthetic-monitoring/playwright-checks/overview/)
 - [Checkly Playwright Tips on YouTube](https://www.youtube.com/playlist?list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc)
 
 ## License

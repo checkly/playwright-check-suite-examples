@@ -43,17 +43,18 @@ export default defineConfig({
   projects: [
     /**
      * Example 1
+     * Running multiple browsers
      */
     {
       name: "chromium",
-      testMatch: /.*\/example-1\/.*\.spec\.ts/,
+      testMatch: /.*\/multiple-browsers\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
       },
     },
     {
       name: "firefox",
-      testMatch: /.*\/example-1\/.*\.spec\.ts/,
+      testMatch: /.*\/multiple-browsers\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Firefox"],
       },
@@ -63,12 +64,12 @@ export default defineConfig({
      */
     {
       name: "environment-marketing",
-      testMatch: /.*\/example-2\/.*\.spec\.ts/,
+      testMatch: /.*\/different-environments\/.*\.spec\.ts/,
       use: { ...devices["Desktop Chrome"], baseURL: "https://checklyhq.com" },
     },
     {
       name: "environment-docs",
-      testMatch: /.*\/example-2\/.*\.spec\.ts/,
+      testMatch: /.*\/different-environments\/.*\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
         baseURL: "https://docs.checklyhq.com",
@@ -88,7 +89,7 @@ export default defineConfig({
     {
       name: "login-setup",
       use: { ...devices["Desktop Chrome"], baseURL: "https://checklyhq.com" },
-      testMatch: /.*\/example-4\/.*\.setup\.ts/,
+      testMatch: /.*\/storage-state-and-dependencies\/.*\.setup\.ts/,
     },
     {
       name: "logged-in-tests",
@@ -97,7 +98,7 @@ export default defineConfig({
         baseURL: "https://checklyhq.com",
         storageState: path.resolve(__dirname, AUTH_FILE),
       },
-      testMatch: /.*\/example-4\/.*\.spec\.ts/,
+      testMatch: /.*\/storage-state-and-dependencies\/.*\.spec\.ts/,
       dependencies: ["login-setup"],
     },
   ],
