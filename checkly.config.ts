@@ -10,7 +10,7 @@ export default defineConfig({
     // reuse your existing Playwright configuration
     playwrightConfigPath: "./playwright.config.ts",
     // define locations from which your tests will run as monitors
-    locations: ["us-west-1", "eu-west-2", "ap-northeast-1"],
+    locations: ["us-east-1", "eu-central-1", "ap-southeast-1"],
 
     playwrightChecks: [
       /**
