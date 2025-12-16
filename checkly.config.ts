@@ -44,14 +44,14 @@ export default defineConfig({
         logicalId: "environment-marketing-suite",
         pwProjects: ["environment-marketing"],
         frequency: Frequency.EVERY_10M,
-        locations: ["us-west-1", "eu-west-2", "af-south-1"],
+        locations:  ["us-east-1", "eu-central-1", "ap-southeast-1"],
       },
       {
         name: "Docs Environment",
         logicalId: "environment-docs-suite",
         pwProjects: ["environment-docs"],
         frequency: Frequency.EVERY_1H,
-        locations: ["us-west-1"],
+        locations: ["us-east-1"],
       },
 
       /**
@@ -107,7 +107,7 @@ export default defineConfig({
   },
   //also include:
   cli: {
-    runLocation: "eu-west-1",
+    runLocation: "eu-central-1",
     retries: 0,
   },
 })
